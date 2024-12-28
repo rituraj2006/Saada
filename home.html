@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Saada</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+    box-sizing: border-box; /* Ensure padding and borders are included in total width and height */
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background-image: url("https://images.pexels.com/photos/14921268/pexels-photo-14921268.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2");
+    color: #333;
+    background-color: #f0f0f0; /* Light background color for contrast */
+    margin: 0;
+    padding: 0;
+    animation: fadeIn 1s ease-in; /* Fade-in effect for the whole body */
+    background-size: cover; /* Cover the entire viewport */
+    background-position: center; /* Center the image */
+    
+   
+    height: 100vh; /* Full viewport height */
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+header {
+    background-color: black;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+   
+}
+
+h1 {
+    margin: 0;
+}
+
+h2 {
+    color: #111;
+    margin: 20px 0;
+    font-size: 1.5em;
+    position: relative;
+    animation: slideIn 0.5s ease-in-out; /* Slide-in animation for headers */
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateY(-20px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+h2::after {
+    content: '';
+    display: block;
+    width: 50px;
+    height: 4px;
+    background-color: #444; /* Underline effect */
+    margin: 10px auto;
+}
+
+section {
+    padding: 20px;
+    margin: 10px auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+    background-color: rgba(255, 255, 255, 0.4); /* White with 80% opacity */
+    transition: transform 0.3s; /* Smooth scale effect */
+}
+
+section:hover {
+    transform: scale(1.01); /* Slightly enlarge on hover */
+}
+.introduction {
+    padding: 20px;
+    margin: 10px auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+    background-color: rgba(255, 255, 255, 0.4); /* White with 80% opacity */
+    transition: transform 0.3s; /* Smooth scale effect */
+}
+
+.introduction:hover {
+    transform: scale(1.01); /* Slightly enlarge on hover */
+}
+.video-section {
+    text-align: center;
+   
+    animation: fadeIn 0.5s ease-in; /* Fade-in for video section */
+    will-change: 100%;
+   
+}
+
+.pollution-video {
+    width: 100%;
+    max-width: 800px;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.causes {
+    text-align: center;
+}
+
+.cause-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+.cause-block {
+    width: 300px; /* Fixed width for cause blocks */
+    background-color: #f9f9f9; /* Light grey background for contrast */
+    border-radius: 10px;
+    padding: 15px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s; /* Smooth hover effect */
+    opacity: 0;
+    animation: fadeInUp 0.5s forwards; /* Fade-in and slide-up animation */
+}
+
+@keyframes fadeInUp {
+    from {
+        transform: translateY(20px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.cause-block:hover {
+    transform: translateY(-5px); /* Lift effect on hover */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3); /* Deeper shadow on hover */
+}
+
+.cause-icon {
+    width: 100%; /* Make cause images fill the block */
+    height: 150px; /* Set a fixed height for the images */
+    object-fit: cover; /* Cover to maintain aspect ratio */
+    border-radius: 10px;
+    animation: pulse 1.5s infinite; /* Pulsing effect */
+    transition: transform 0.3s, box-shadow 0.3s; /* Smooth hover effect */
+    animation: fadeInUp 0.5s forwards; /* Fade-in and slide-up animation */
+}
+
+
+
+.additional-images {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.image-block {
+    display: flex;
+    gap: 20px; /* Space between images */
+}
+
+.image-block img {
+    max-width: 600px; /* Increased size for images in the additional section */
+    height: auto; /* Ensure aspect ratio */
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s; /* Smooth scaling effect */
+    animation: zoomIn 1s; /* Zoom-in effect */
+}
+
+@keyframes zoomIn {
+    from {
+        transform: scale(0.5);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+.image-block img:hover {
+    transform: scale(1.1); /* Scale up image on hover */
+    filter: brightness(0.8); /* Darken image on hover */
+}
+
+.graph-section {
+    padding: 20px;
+    animation: fadeIn 0.5s ease-in; /* Fade-in for graph section */
+}
+
+.graph-container {
+    position: relative;
+    height: 400px; /* Set height for the graph */
+    transition: transform 0.3s; /* Smooth scale effect */
+}
+
+.graph-container:hover {
+    transform: scale(1.02); /* Slightly enlarge on hover */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3); /* Deeper shadow on hover */
+}
+
+footer {
+    text-align: center;
+    padding: 10px;
+    background-color: #333;
+    color: #fff;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    animation: fadeIn 0.5s ease-in; /* Fade-in for footer */
+}
+
+header h3{
+    text-align: left;
+
+}
+
+header h3 a{
+    color: white;
+    text-decoration: none;
+}
+
+.economic-impact-box {
+    background-color: rgba(255, 255, 255, 0.8); /* Light background for readability */
+    border: 2px solid #444; /* Border to define box */
+    padding: 20px;
+    margin-top: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); /* Shadow for emphasis */
+    font-size: 0.95em;
+    color: #333;
+    animation: fadeIn 1s ease-in; /* Fade-in effect */
+}
+
+.economic-impact-box h3 {
+    font-size: 1.3em;
+    color: #111;
+    margin-bottom: 10px;
+    text-align: left;
+}
+
+.urbanization {
+    background-color: rgba(255, 255, 255, 0.8); /* Light background for readability */
+    border: 2px solid #444; /* Border to define box */
+    padding: 20px;
+    margin-top: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); /* Shadow for emphasis */
+    font-size: 0.95em;
+    color: #333;
+    animation: fadeIn 1s ease-in; /* Fade-in effect */
+}
+
+.urbanization h3 {
+    font-size: 1.3em;
+    color: #111;
+    margin-bottom: 10px;
+    text-align: left;
+}
+
+.sustainability {
+    background-color: rgba(255, 255, 255, 0.8); /* Light background for readability */
+    border: 2px solid #444; /* Border to define box */
+    padding: 20px;
+    margin-top: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); /* Shadow for emphasis */
+    font-size: 0.95em;
+    color: #333;
+    animation: fadeIn 1s ease-in; /* Fade-in effect */
+}
+
+.sustainability h3 {
+    font-size: 1.3em;
+    color: #111;
+    margin-bottom: 10px;
+    text-align: left;
+}
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Noise Pollution in India</h1>
+    <p>Exploring the causes, effects, and potential solutions to noise pollution across the country.</p>
+    <h3><a href="index.html">Back</a></h3>
+</header>
+
+<section class="introduction">
+    <h1>What is Noise Pollution?</h2>
+    <p>Noise pollution refers to the excessive or harmful levels of noise in the environment, primarily generated by human activities. Common sources include transportation (such as vehicles, airplanes, and trains), industrial activities (like factories and machinery), construction work, urbanization, and household appliances. The impact of noise pollution on health can be significant, leading to issues such as hearing loss, stress, sleep disturbances, and increased risk of cardiovascular diseases. It can also impair cognitive functions, affecting concentration and productivity, particularly in children. Additionally, noise pollution disrupts wildlife communication and behaviors, further impacting ecosystems. To mitigate noise pollution, strategies such as effective urban planning, the construction of noise barriers, enforcement of noise regulations, and public awareness campaigns are essential. Addressing this environmental issue is crucial for enhancing both human health and the quality of life in communities.</p><br>
+    <h1>Noise Pollution is a Multidiscipinary Issue</h2>
+    <p>Noise pollution is a multidisciplinary issue involving various fields, from health sciences to urban planning, environmental studies, and beyond. This complexity arises because noise pollution affects human health, animal behavior, urban infrastructure, and social dynamics, requiring input and expertise from multiple disciplines to understand and mitigate its effects comprehensively.</p>
+</section>
+
+<!-- Video Section -->
+
+
+<!-- Causes Section -->
+<section class="causes">
+    <h2>Causes of Noise Pollution in India</h2>
+    <div class="cause-container">
+        <div class="cause-block">
+            <img src="https://www.geotab.com/CMS-Images-production/Blog/NA/_2018/July/traffic_congestion/blog-traffic-congestion-hero@2x.jpg" alt="Traffic noise" class="cause-icon">
+            <h3>Traffic and Transportation</h3>
+            <p>Heavy traffic, honking, and transportation noise in densely populated cities contribute substantially to noise pollution.</p>
+        </div>
+        <div class="cause-block">
+            <img src="https://www.living-water.co.uk/wp-content/uploads/2018/09/factory-water-pollution.jpg" alt="Industrial noise" class="cause-icon">
+            <h3>Industrial Activities</h3>
+            <p>Factories and industrial sites produce high levels of noise, particularly in industrial areas and cities.</p>
+        </div>
+        <div class="cause-block">
+            <img src="https://gemmo.ai/wp-content/uploads/2022/08/AdobeStock_119570056.jpeg" alt="Construction noise" class="cause-icon">
+            <h3>Construction Projects</h3>
+            <p>Ongoing construction and infrastructure development create continuous noise that affects residential neighborhoods.</p>
+        </div>
+        <div class="cause-block">
+            <img src="https://images.hindustantimes.com/img/2022/09/26/1600x900/ffaaab9c-3d77-11ed-b0b0-fc99a9f59b01_1664215910123_1664235176588_1664235176588.jpg" alt="Festival noise" class="cause-icon">
+            <h3>Public Events and Festivals</h3>
+            <p>Celebrations and public events often involve loud music and fireworks, contributing to noise pollution, especially during festivals.</p>
+        </div>
+    </div>
+</section>
+
+
+        <h2>Different Aspects Of Noise Pollution</h2>
+     
+        <div class="economic-impact-box">
+            <h3>Economic Aspect of Noise Pollution</h3>
+            <p>
+                There is an economic aspect to this unconventional pollution. India opened up to the market following the global shifts in the 1990s and joined the WTO in the 2000s, adapting to Neo-Liberalism policies endorsed by global leaders and institutions like the IMF and World Bank. The adoption of Liberalisation, Privatisation, and Globalisation (LPG) reforms resulted in significant economic growth, but it came at an environmental cost.
+            </p>
+            <p>
+                Before 1991, India’s economy was relatively slow but followed a path of strong sustainability, which conserved natural resources and maintained lower environmental footprints. Post-liberalisation, however, the high growth rate has led to weak sustainability practices, where economic activities increasingly degrade environmental quality. This shift is evident in rising health costs, particularly due to air pollution in major cities, reflecting unsustainable consumption and production patterns.
+            </p>
+            <p>
+                The neo-liberal policy framework assumes that natural and man-made capital are substitutable and thus, environmental well-being is often compromised. While economic capital has grown, the decline in natural capital affects current and future generations, calling for urgent sustainable measures.
+            </p>
+        </div><br>
+        <div class="urbanization">
+            <h3>Urbanization</h3>
+           <p>Urbanism: . The majority of these noises are associated with motor vehicles. The Sub-urbanite approach of designing cities, that is becoming prevalent insists having motorized (personal) vehicles, giving emphasis on one's individuality, has become a problem everywhere in the world. There is a perception built into us that cities have to be loud, but it doesn't have to be this way and there are ways to significantly reduce urban traffic noise. Countries that have strict noise regulation legislations often don't have the political will to do anything about this. 
+            Dutch cities are significantly quieter than most other cities, and most of that can be attributed to Wet Geluidhinder Act of 1979. </p>
+            <p>There is a case study of Dutch cities in the mitigation section  (mitigation link) 
+            In cities whenever an old infrastructure for example- when old rail lines are replaced by underground metro, they expand the road lines which just drive the an induced demand of motorised vehicles and  not solve the problem. 
+            There are plans proposed to make new highways and  all over the world, by many governments, spending billions of dollars into it, claiming to reduce traffic and curb carbon emissions. There are many research papers and articles that say they don't.</p>
+        </div><br>
+        <div class="sustainability">
+            <h3>Sustanability</h3>
+             <p>Noise pollution disrupts ecosystems, particularly impacting species that depend on natural soundscapes for survival. Animals rely on sound for communication, navigation, and reproduction; excessive noise from urban areas, transportation, and industrial zones can interfere with these processes. This disruption can cause stress in wildlife, alter migration patterns, and even lead to population declines, especially among species that rely on acoustic signals, such as birds and marine life. By implementing noise management strategies, such as limiting noise-intensive activities in natural habitats and using quieter machinery, we contribute to biodiversity preservation—a core aspect of environmental sustainability</p><p>Sustainable noise management aligns with urban planning and transportation reforms. Designing cities with pedestrian-friendly areas, extensive cycling networks, and efficient public transportation systems reduces reliance on cars, thereby decreasing urban noise. This approach not only lowers emissions but also supports noise control, enhancing both environmental and human health.</p>
+            
+            </div>
+          
+        </div>
+    </section>
+</section>
+
+<!-- Additional Images Section -->
+<section class="additional-images">
+    <h2>More About Noise Pollution</h2>
+    <div class="image-block">
+        <img src="https://www.azquotes.com/picture-quotes/quote-of-all-the-varieties-of-modern-pollution-noise-is-the-most-insidious-robert-lacey-111-23-49.jpg" alt="Public awareness on noise pollution">
+        <img src="https://le-cdn.hibuwebsites.com/e0f442da5d0246869fa4912d8c34ea61/dms3rep/multi/opt/Is+a+Fence+an+Effective+Noise+Barrier_-1920w.png" alt="Noise barriers">
+    </div>
+</section>
+
+<!-- Graph Section -->
+<section class="graph-section">
+    <h2>Noise Pollution Levels in Major Cities</h2>
+    <div class="graph-container">
+        <canvas id="noiseGraph"></canvas>
+    </div>
+</section>
+
+<section class="solutions">
+    <h2>Possible Solutions</h2>
+    <p>Regulating noise levels through policies, increasing awareness, and promoting quieter alternatives can help mitigate noise pollution in India.</p>
+</section>
+
+<footer>
+    <p>&copy; Saada. All rights reserved.</p>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+    const ctx = document.getElementById('noiseGraph').getContext('2d');
+    const noiseGraph = new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: ['Delhi', 'Mumbai', 'Bangalore', 'Kolkata', 'Chennai'],
+            datasets: [{
+                label: 'Average Noise Level (dB)',
+                data: [85, 78, 75, 80, 76], // Sample data
+                backgroundColor: 'rgba(0, 0, 0, 0.5)',
+                borderColor: 'rgba(255, 255, 255, 0.8)',
+                borderWidth: 1
+            }]
+        },
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: true,
+                    title: {
+                        display: true,
+                        text: 'Noise Level (dB)',
+                        color: '#333'
+                    }
+                },
+                x: {
+                    title: {
+                        display: true,
+                        text: 'Cities',
+                        color: '#333'
+                    }
+                }
+            },
+            plugins: {
+                legend: {
+                    labels: {
+                        color: '#333'
+                    }
+                }
+            }
+        }
+    });
+</script>
+
+</body>
+</html>

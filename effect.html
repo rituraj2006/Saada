@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Effects of Noise Pollution</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@700&family=Roboto:wght@400&display=swap" rel="stylesheet">
+    <style>
+        
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    line-height: 1.6;
+    background-color: #000; 
+    color: #f0f0f0; 
+    background-image: url('https://images.pexels.com/photos/1798642/pexels-photo-1798642.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2');
+    opacity: 0;
+    animation: fadeIn 1.0s ease-in forwards; 
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+
+
+
+
+header {
+    background:rgb(57, 122, 57); 
+    color: whitesmoke;
+    padding: 20px 0;
+    text-align: center;
+    border-bottom: 2px solid rgb(57, 122, 57);
+}
+
+header h1 {
+    margin-bottom: 10px;
+    font-size: 2.5em;
+    font-family: 'Merriweather', serif;
+}
+
+
+main {
+    padding: 20px;
+    margin: 20px auto;
+    max-width: 1200px;
+    background-color:rgb(50,50,50); 
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+
+section {
+    margin-bottom: 40px;
+}
+
+h2 {
+    color: rgb(57, 122, 57); 
+    margin-bottom: 20px;
+    font-size: 2em;
+    font-family: 'Merriweather', serif;
+    border-bottom: 2px solid rgb(57, 122, 57);
+    padding-bottom: 10px;
+}
+
+
+
+.effect-box {
+    background-color: rgba(0, 0, 0, 0.5); 
+    padding: 20px;
+    margin: 15px 0;
+    border-left: 5px solid rgb(79, 102, 79);
+    border-radius: 4px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3); 
+   
+
+}
+
+.effect-box:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.9);
+}
+
+.effect-box h3 {
+    color:rgb(57, 122, 57); 
+    margin-bottom: 10px;
+    font-size: 1.5em;
+    font-family: 'Merriweather', serif;
+    display: flex;
+    align-items: center;
+}
+
+.effect-box h3 i {
+    margin-right: 10px;
+    color:rgb(79, 102, 79);
+}
+
+.effect-box p {
+    font-size: 1.1em;
+    line-height: 1.8;
+    color: #e0e0e0; /* Slightly lighter text for paragraphs */
+}
+
+.effect-box img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 4px;
+    margin-bottom: 15px;
+}
+
+/* Footer Styles */
+footer {
+    background-color: rgba(20, 20, 20, 0.95);
+    color: #f0f0f0;
+    text-align: center;
+    padding: 20px 0;
+    margin-top: 40px;
+    border-top: 2px solid rgb(79, 102, 79);
+}
+
+footer p {
+    font-size: 1em;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+    header h1 {
+        font-size: 2em;
+    }
+
+    h2 {
+        font-size: 1.5em;
+    }
+
+    .effect-box h3 {
+        font-size: 1.2em;
+    }
+
+    .effect-box p {
+        font-size: 1em;
+    }
+
+    main {
+        margin: 10px;
+        padding: 15px;
+       
+    }
+}
+
+header h3 a{
+    text-decoration: none;
+    color: white;
+}
+
+header h3{
+    text-align: left;
+    margin-left: 5px;
+    margin-bottom: -5px;
+}
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Effects of Noise Pollution</h1>
+        <h3><a href="index.html">Back</a></h3>
+    </header>
+    <main>
+        <section>
+            <h2>Introduction</h2>
+            <p>Noise pollution refers to the excessive or harmful levels of noise in the environment, which can have significant negative effects on both human health and the ecosystem.</p>
+        </section>
+
+        <section>
+            <h2>Effects on Health</h2>
+            <div class="effect-box">
+                <h3><i class="fas fa-medkit"></i>Health Implecation</h3>
+                <p>Noises over 85db but there are other health implication when people are exposed to constant noise levels above 55db, which is the maximum amount of noise considered acceptable by the WHO and cities particularly in the global south are infamous of having average noise levels above 55db. During rush hours and festive seasons, the average noise level become outright unbearable. Because humans are good at adapting to our environments we often don't realize when we are exposed to noise that are harmful to our health. Long term exposure to noise possess many health risks - heart disease, hypertension, high stress levels and faster cognitive decline</p>
+            </div>
+
+            <div class="effect-box">
+                <h3><i class="fas fa-war"></i>Anthropogenic Causes</h3>
+                <p><b> Physical Impact of War:</b><br> 
+                    
+                    <p>For military personnel, sustained exposure to noise from artillery, aircraft, and heavy machinery often results in hearing loss or tinnitus (constant ringing in the ears), which are among the most common service-connected disabilities. Studies show that noise levels from firearms and explosions can exceed 150 decibels (dB)—well above the threshold for permanent hearing damage. Additionally, sudden noise exposure can cause <b> acoustic trauma</b>, which damages the inner ear structures and may lead to permanent hearing impairment or balance issues <br>
+                    
+                    <br>Civilians in conflict zones are similarly impacted, especially children, the elderly, and those with pre-existing conditions. Exposure to high noise levels can disrupt sleep, contribute to stress and anxiety, and increase the risk of cardiovascular issues, such as hypertension, due to the body’s prolonged stress response to loud and sudden noises.</p>
+                    <br><b> Psychological Effects of War:</b>
+                    
+                    <p>The psychological effects of persistent loud noises can be profound. Noise-induced stress can heighten the sense of fear and hypervigilance, leading to mental health issues like anxiety, PTSD, and depression. For military personnel, exposure to continuous loud sounds can trigger or exacerbate PTSD symptoms, as the noise often recalls traumatic events experienced during combat.</p><br>
+                    
+                    For civilians, especially children, living in war zones with constant noise exposure can lead to developmental and behavioral issues, such as increased aggression, concentration problems, and sleep disturbances. The World Health Organization (WHO) has found that chronic noise exposure can impair cognitive development in children and negatively affect academic performance.</p>
+               
+            </div>
+       
+        </section>
+
+        <section>
+            <h2>Effects on Environment</h2>
+            <div class="effect-box">
+                <h3><i class="fas fa-tree"></i> Disruption of Animal Communication and Behavior</h3>
+                <p><strong>interference with Communication:</strong> Many animals rely on sound for communication, mating, and territory defence. Noise pollution can mask these sounds, making it difficult for animals to communicate effectively. Birds, for instance, may sing at higher pitches or adjust their song patterns, which can impact mate attraction and territory defence. Studies show that traffic and urban noise can reduce reproductive success in species like the European robin and the great tit</p><br><p><b> Changes in Foraging and Predation:</b> Noise can disrupt the ability of predators to hunt and prey to avoid being hunted. For example, some fish and marine mammals rely on echolocation to detect prey, which is hindered by underwater noise pollution from ships and industrial activities. This interference can alter feeding patterns and reduce survival rates in species like dolphins and whales (Weilgart, 2007).</p>
+            </div>
+            <div class="effect-box">
+                <h3><i class="fas fa-water"></i>Stress and Health Impacts on Wildlife</h3>
+                <p>
+                <b>Physiological Stress:</b> Chronic exposure to noise pollution can induce stress responses in wildlife, resulting in elevated cortisol levels and affecting immune function, reproduction, and survival. Studies on animals like prairie dogs and frogs have shown that chronic noise disrupts breeding cycles and increases stress hormones, which can lead to population declines</p>
+            </div>
+
+            <div class="effect-box">
+                <h3><i class="fas fa-rock"></i>Impacts on Plant Ecology</h3>
+                <p><b> Reduced Seed Dispersal:</b> Certain animals play a crucial role in dispersing plant seeds, and noise pollution can drive away these seed dispersers. For example, studies show that noise pollution around natural gas compressors reduced the presence of scrub jays, which are key seed dispersers for pinyon pine trees. This led to fewer seeds being dispersed, affecting forest regeneration and plant biodiversity</p><br><p><b> Altered Pollination Patterns:</b> Noise impacts on pollinators, such as bees and hummingbirds, can lead to decreased pollination efficiency. Reduced pollination rates can result in lower plant reproductive success, ultimately impacting plant diversity and ecosystem resilience.</p>
+            </div>
+        </section>
+
+        <section>
+            <h2>Video on Noise Pollution Effects</h2>
+            <p>Watch this informative video to learn more about the effects of noise pollution:</p>
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/i9qMbTba6qk?si=UhNFFzgdz7gwuBml"  frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2024 Noise Pollution Awareness</p>
+    </footer>
+</body>
+</html>

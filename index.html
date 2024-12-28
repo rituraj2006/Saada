@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Saada</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+       
+        <div class="left-section">
+            <div class="hamburger-menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <div class="logo">
+                <img src="WhatsApp Image 2024-11-03 at 6.09.26 PM.jpeg" alt="Website Logo">
+            </div>
+        </div>
+
+       
+        <nav>
+            <ul>
+                <li><a href="https://noise-map.com/" target="_blank" class="external-link">Map</a></li>
+                <li><a href="quiz.html">Quiz</a></li>
+                <li><a href="contact.html">Contact Us</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    
+    <div class="dropdown-content">
+        <a href="https://cpcb.nic.in/" target="_blank">Central Pollution and Control Board</a>
+        <a href="https://youtu.be/ReNCbglhPIs?feature=shared" target="_blank">Effect on Marine Life</a>
+        <a href="https://earth5r.org/noise-pollution-in-india-a-silent-killer/" target="_blank">EARTH5R</a>
+    </div>
+
+    <section class="hero">
+        <div class="hero-text">
+            <h1>Mitigating Noise Pollution?</h1>
+            <h1>For a Better Tomorrow</h1>
+        </div>
+    </section>
+
+    <section class="content">
+        <div class="info-card">
+            <h2>Home</h2>
+            <p>What is noise pollution?</p>
+            <p>Information about causes, sources, and effects of noise pollution...</p>
+            <button><a href="home.html">Learn More</a></button>
+        </div>
+        <div class="info-card">
+            <h2>Effects</h2>
+            <p>What are the effects of noise pollution?</p>
+            <p>Details about the harmful impacts on health and environment...</p>
+            <button><a href="effect.html">Learn More</a></button>
+        </div>
+        <div class="info-card">
+            <h2>Mitigation</h2>
+            <p>How to reduce noise pollution?</p>
+            <p>Effective strategies and solutions for reducing noise pollution...</p>
+            <button><a href="mitigation.html">Learn More</a></button>
+        </div>
+    </section>
+    
+    <footer>
+        <p>&copy;  Saada. All rights reserved.</p>
+    </footer>
+    <script>
+        // JavaScript to toggle dropdown menu visibility
+        document.querySelector('.hamburger-menu').addEventListener('click', function() {
+            document.querySelector('.dropdown-content').classList.toggle('show');
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Noise Pollution Mitigation</title>
+   
+    <script src="script.js" defer></script> 
+    <style>
+        
+body {
+    font-family: 'Verdana', sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    background-color: #f0f4f8;
+    color: #34495e; 
+    background-image: url('https://images.pexels.com/photos/3391830/pexels-photo-3391830.jpeg'); 
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    opacity: 0; 
+    animation: fadeIn 1.0s ease-in forwards; /* 1.5 seconds fade-in effect */
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+header {
+    background: #2980b9; /* Darker blue background */
+    color: white; /* White text */
+    padding: 30px 0; /* Increased vertical padding */
+    text-align: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3); /* Shadow effect */
+}
+
+h1 {
+    margin: 0; /* Remove default margin */
+    font-size: 2.5em; /* Larger header font size */
+}
+
+main {
+    padding: 20px; /* Padding for main content */
+    max-width: 800px; /* Maximum width for content */
+    margin: 30px auto; /* Centering the main content with increased margin */
+    background: #ffffff; /* White background for the main section */
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Enhanced shadow */
+    background: rgba(255, 255, 255, 0.8); /* White background with 70% opacity */
+    padding: 20px;
+    max-width: 800px;
+    margin: 30px auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+   
+}
+
+h2 {
+    color: #2980b9; /* Darker blue for subheadings */
+    border-bottom: 2px solid #2980b9; /* Underline for subheadings */
+    padding-bottom: 10px; /* Spacing below subheading */
+}
+
+ul {
+    padding-left: 20px; /* Indent list items */
+}
+
+footer {
+    text-align: center; /* Center footer text */
+    padding: 15px 0; /* Increased padding for footer */
+    background: #2980b9; /* Dark blue background */
+    color: white; /* White text */
+    position: relative; /* Position footer */
+    bottom: 0; /* Align footer at the bottom */
+    width: 100%; /* Full width footer */
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.3); /* Shadow effect on footer */
+}
+
+/* Styles for the calculator section */
+form {
+    background: #ecf0f1; /* Light gray background for form */
+    padding: 25px; /* Padding for the form */
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2); /* Subtle shadow effect */
+    margin-top: 20px; /* Spacing above form */
+}
+
+label {
+    display: block; /* Make labels block elements */
+    margin: 15px 0 5px; /* Spacing for labels */
+    font-weight: bold; /* Bold text for labels */
+}
+
+input[type="number"] {
+    width: 100%; /* Full-width input */
+    padding: 10px; /* Padding for input */
+    margin-bottom: 15px; /* Space below inputs */
+    border: 1px solid #bdc3c7; /* Light border color */
+    border-radius: 5px; /* Rounded corners */
+}
+
+button {
+    background: #2980b9; /* Darker blue button */
+    color: white; /* White text */
+    padding: 12px 20px; /* Padding for button */
+    border: none; /* No border */
+    border-radius: 5px; /* Rounded corners */
+    cursor: pointer; /* Pointer cursor on hover */
+    font-size: 1.1em; /* Slightly larger text */
+}
+
+button:hover {
+    background: #1c6691; /* Darker blue on hover */
+}
+
+#result {
+    margin-top: 20px; /* Spacing above result */
+    font-weight: bold; /* Bold text for result */
+    font-size: 1.2em; /* Larger font size for result */
+    color: #2980b9; /* Match result color to theme */
+}
+
+header h3 a{
+    text-decoration: none;
+    color: white;
+
+}
+header h3{
+    text-align: left;
+    margin-left: 5px;
+    margin-bottom: -5px;
+}
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Mitigating Noise Pollution</h1>
+        <h3><a href="index.html">Back</a></h3>
+    </header>
+
+    <main>
+        <section>
+            <h2>Introduction to Noise Pollution Mitigation</h2>
+            <p>
+                Noise pollution is a significant environmental issue that can have detrimental effects on human health and well-being. It is characterized by unwanted or harmful sounds in the environment, often resulting from industrial activities, transportation, and urbanization. Mitigating noise pollution is crucial for creating healthier living spaces and improving the quality of life for individuals in both urban and rural areas.
+            </p>
+            <p>
+                Effective mitigation strategies can help reduce noise levels and their adverse effects, leading to a more peaceful and productive environment.
+            </p>
+        </section>
+
+        <section>
+            <h2>Effective Mitigation Strategies</h2>
+            <p>Implementing effective strategies to reduce noise pollution requires collaboration among communities, policymakers, and industries. Here are some key strategies:</p>
+            <ul>
+                <li><strong>Urban Planning:</strong> Thoughtful urban planning can significantly reduce noise pollution. Creating green spaces, parks, and buffer zones between noisy areas (like highways) and residential neighborhoods can help absorb sound and provide a tranquil environment.</li>
+                <li><strong>Noise Barriers:</strong> The installation of noise barriers along major roads, railways, and industrial areas can effectively block sound from reaching nearby residential areas. These barriers can be made from various materials, including concrete, wood, or specially designed sound-absorbing materials.</li>
+                <li><strong>Regulating Noise Levels:</strong> Governments can enforce stricter noise regulations for construction sites, industrial operations, and public events. Implementing quiet hours and monitoring noise levels can ensure compliance and reduce disturbances to the community.</li>
+                <li><strong>Community Awareness:</strong> Educating the public about the effects of noise pollution and promoting quieter practices can foster a community-driven approach to noise reduction. Workshops, seminars, and informational campaigns can raise awareness and encourage residents to adopt noise-reducing measures.</li>
+                <li><strong>Use of Sound-Absorbing Materials:</strong> Incorporating sound-absorbing materials in building construction can significantly reduce indoor noise levels. These materials can include acoustic panels, carpets, and specially designed insulation, which help minimize sound reverberation and improve overall comfort.</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>Noise Pollution Level Calculator</h2>
+            <p>Use the calculator below to estimate the Noise Pollution Level:</p>
+            <form id="calculator">
+                <label for="source1">L<sub>10</sub> (dB):</label>
+                <input type="number" id="source1" placeholder="Enter noise level" required>
+
+                <label for="source2">L<sub>50</sub> (dB):</label>
+                <input type="number" id="source2" placeholder="Enter noise level" required>
+
+                <label for="source3">L<sub>90</sub> (dB):</label>
+                <input type="number" id="source3" placeholder="Enter noise level" required>
+
+                <button type="submit">Calculate Noise Pollution Level</button>
+            </form>
+            <h3 id="result"></h3>
+        </section>
+
+        <section>
+            <h2>Videos on Noise Pollution Effects</h2>
+            <p>Watch these informative videos to learn more about the effects of noise pollution:</p>
+            <div style="display: flex; gap: 20px; flex-wrap: wrap; margin-left: 80px;">
+                <!-- First Video -->
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/L7_O1GSPIWo?si=CZxh1Bt_zRm-KL7u"  frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                
+                <!-- Second Video -->
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/CTV-wwszGw8?si=M2AwLPSrRmloypys"  frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+        </section>
+
+        <section>
+            <h2>Technological Innovations</h2>
+            <p>
+                Advancements in technology have also contributed to noise pollution mitigation. For instance, electric vehicles produce significantly less noise compared to traditional gasoline-powered vehicles. Additionally, innovations in construction techniques and materials, such as quieter machinery and soundproof windows, can help reduce noise at the source.
+            </p>
+        </section>
+
+        <section>
+            <h2>Conclusion</h2>
+            <p>
+                Mitigating noise pollution is a collective responsibility that requires the active participation of individuals, communities, and policymakers. By implementing effective strategies and fostering a culture of awareness, we can create a quieter, healthier, and more enjoyable environment for everyone. It is essential to recognize the importance of sound management in our daily lives and work towards sustainable solutions that promote peace and well-being.
+            </p>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Noise Pollution Awareness. All rights reserved.</p>
+    </footer>
+</body>
+</html>

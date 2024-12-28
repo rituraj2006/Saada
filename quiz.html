@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Saada</title>
+    <style>
+        body {
+    font-family: Arial, sans-serif;
+    background-image: url('DALL·E\ 2024-11-02\ 12.14.00\ -\ A\ serene\ and\ visually\ appealing\ background\ image\ related\ to\ environmental\ awareness\ and\ noise\ pollution.\ The\ image\ should\ feature\ a\ tranquil\ landscape.webp'); /* Add the image here */
+    background-size: cover; /* Cover the entire background */
+    background-repeat: no-repeat; /* Don't repeat the background image */
+    color: #333;
+    margin: 0;
+    padding: 20px;
+}
+
+.container {
+    max-width: 600px;
+    margin: auto;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.9); /* Slightly transparent background */
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+h1 {
+    text-align: center;
+    font-size: 2rem; /* Adjust font size */
+    font-weight: bold; /* Maintain a strong header */
+}
+
+.question {
+    margin: 20px 0;
+}
+
+.btn {
+    display: block;
+    margin: 20px auto;
+    padding: 10px 20px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s; /* Adding a scale effect */
+}
+
+.btn:hover {
+    background-color: #218838;
+    transform: scale(1.05); /* Scale up on hover */
+}
+
+.option {
+    padding: 10px;
+    background-color: #e9ecef;
+    margin: 5px 0;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s; /* Adding scale effect */
+}
+
+.option:hover {
+    background-color: #d6d8db;
+    transform: scale(1.05); /* Scale up on hover */
+}
+
+.option.selected {
+    background-color: #007bff; /* Blue for selected */
+    color: white;
+}
+
+.option.correct {
+    background-color: #28a745; /* Green for correct */
+    color: white;
+}
+
+.option.incorrect {
+    background-color: #dc3545; /* Red for incorrect */
+    color: white;
+}
+
+.hidden {
+    display: none;
+}
+
+#result-container {
+    text-align: center;
+}
+
+#submit-button {
+    display: block;
+    margin: 20px auto;
+    padding: 12px 24px;
+    background: linear-gradient(135deg, #ff6f61, #ff4e50); /* Gradient background */
+    color: white;
+    border: none;
+    border-radius: 30px; /* Rounded edges */
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.3s;
+    position: relative;
+    overflow: hidden;
+}
+
+#submit-button::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 300%;
+    height: 300%;
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    transition: transform 0.5s;
+    z-index: 0; /* Behind the button text */
+}
+
+#submit-button:hover {
+    transform: scale(1.05); /* Slightly enlarge on hover */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+#submit-button:hover::before {
+    transform: translate(-50%, -50%) scale(1); /* Create a ripple effect */
+}
+
+#submit-button:focus {
+    outline: none; /* Remove default outline */
+}
+
+.back{
+    margin-left: 10px;
+    font-size: 20px;
+    display: inline-block;
+    margin: 20px auto;
+    padding: 12px 24px;
+    background: linear-gradient(135deg, #ff6f61, #ff4e50); /* Gradient background */
+    color: white;
+    border: none;
+    border-radius: 30px; /* Rounded edges */
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.3s;
+    position: relative;
+    overflow: hidden;
+    
+}
+
+.back::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 300%;
+    height: 300%;
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    transition: transform 0.5s;
+    z-index: 0; /* Behind the button text */
+}
+.back:hover {
+    transform: scale(1.05); /* Slightly enlarge on hover */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+   
+}
+
+
+.back a{
+    text-decoration: none;
+    color: black;
+    
+}
+
+
+    </style>
+</head>
+<body>
+    <div class="back"><a href="index.html">Back</a></div>
+    <div class="container">
+        <h1>Noise Pollution Quiz</h1>
+        <div id="quiz">
+            <div class="question" id="question-container">
+                <h2 id="question"></h2>
+                <div id="options"></div>
+            </div>
+            <button id="next-button" class="btn hidden" onclick="nextQuestion()">Next</button>
+
+            <button id="submit-button" class="hidden" onclick="submitQuiz()">Submit</button>
+
+        </div>
+        <div id="result-container" class="hidden">
+            <h2>Your Score: <span id="score"></span></h2>
+            <button class="btn" onclick="restartQuiz()">Restart Quiz</button>
+        </div>
+    </div>
+
+    <script>
+        const questions = [
+    {
+        question: "What is the main source of noise pollution in urban areas?",
+        options: ["Traffic", "Birds", "Wind", "Rain"],
+        answer: 0
+    },
+    {
+        question: "What is considered a harmful noise level in decibels?",
+        options: ["30 dB", "60 dB", "85 dB", "100 dB"],
+        answer: 2
+    },
+    {
+        question: "Which of the following can help reduce noise pollution?",
+        options: ["Planting trees", "Building taller buildings", "Playing loud music", "Using old appliances"],
+        answer: 0
+    },
+    {
+        question: "What health issue can result from long-term exposure to high noise levels?",
+        options: ["Headaches", "Hearing loss", "High blood pressure", "All of the above"],
+        answer: 3
+    },
+    {
+        question: "What is the legal noise limit for residential areas during the night?",
+        options: ["55 dB", "70 dB", "80 dB", "90 dB"],
+        answer: 0
+    },
+    {
+        question: "How does noise pollution affect wildlife?",
+        options: ["It has no effect", "It can lead to habitat loss", "It increases reproduction", "It makes animals more social"],
+        answer: 1
+    },
+    {
+        question: "What is one way to reduce noise pollution in cities?",
+        options: ["More roads", "Fewer traffic signals", "Sound barriers", "Increased car sales"],
+        answer: 2
+    },
+    {
+        question: "Which of the following is a sign of noise-induced hearing loss?",
+        options: ["Difficulty understanding speech", "Increased appetite", "Better focus", "None of the above"],
+        answer: 0
+    },
+    {
+        question: "What kind of noise is considered to be more harmful?",
+        options: ["Continuous noise", "Intermittent noise", "Natural sounds", "Soft music"],
+        answer: 0
+    },
+    {
+        question: "Which occupation is most at risk for noise pollution?",
+        options: ["Teacher", "Construction worker", "Office worker", "Musician"],
+        answer: 1
+    },
+    {
+        question: "How can noise pollution impact sleep?",
+        options: ["Improves sleep quality", "Makes it easier to fall asleep", "Disrupts sleep patterns", "Has no effect"],
+        answer: 2
+    },
+    {
+        question: "What is the primary source of noise pollution in a household?",
+        options: ["Television", "Vacuum cleaner", "Birds", "Windows"],
+        answer: 1
+    },
+    {
+        question: "At what decibel level can sound become painful?",
+        options: ["70 dB", "80 dB", "120 dB", "150 dB"],
+        answer: 2
+    },
+    {
+        question: "What does the term 'noise abatement' refer to?",
+        options: ["Loud music", "Reduction of noise pollution", "Increasing traffic", "Noise enforcement laws"],
+        answer: 1
+    },
+    {
+        question: "What type of pollution is often associated with heavy traffic?",
+        options: ["Air pollution", "Water pollution", "Noise pollution", "All of the above"],
+        answer: 2
+    },
+    {
+        question: "Which of these is NOT a potential effect of noise pollution?",
+        options: ["Stress", "Sleep disorders", "Enhanced concentration", "Hearing loss"],
+        answer: 2
+    },
+    {
+        question: "Which country has implemented a noise regulation law?",
+        options: ["All countries", "No countries", "Only developed countries", "Only developing countries"],
+        answer: 0
+    },
+    {
+        question: "What role does urban planning play in noise pollution?",
+        options: ["It can exacerbate noise issues", "It has no role", "It can help mitigate noise pollution", "It can increase traffic flow"],
+        answer: 2
+    },
+    {
+        question: "What is one common noise-reducing material used in buildings?",
+        options: ["Glass", "Wood", "Concrete", "Acoustic panels"],
+        answer: 3
+    },
+    {
+        question: "What is the purpose of sound insulation?",
+        options: ["To make sounds louder", "To reduce sound transmission", "To enhance music quality", "None of the above"],
+        answer: 1
+    },
+    {
+        question: "How can community awareness help reduce noise pollution?",
+        options: ["By promoting quiet hours", "By encouraging noise-making", "By increasing traffic", "By ignoring the issue"],
+        answer: 0
+    },
+    {
+        question: "What is the main source of noise pollution in urban areas?",
+        options: ["Traffic", "Birds", "Wind", "Rain"],
+        answer: 0
+    },
+    {
+        question: "What is considered a harmful noise level in decibels?",
+        options: ["30 dB", "60 dB", "85 dB", "100 dB"],
+        answer: 2
+    },
+    {
+        question: "Which of the following can help reduce noise pollution?",
+        options: ["Planting trees", "Building taller buildings", "Playing loud music", "Using old appliances"],
+        answer: 0
+    },
+    {
+        question: "What health issue can result from long-term exposure to high noise levels?",
+        options: ["Headaches", "Hearing loss", "High blood pressure", "All of the above"],
+        answer: 3
+    },
+    {
+        question: "What is the legal noise limit for residential areas during the night?",
+        options: ["55 dB", "70 dB", "80 dB", "90 dB"],
+        answer: 0
+    },
+    {
+        question: "How does noise pollution affect wildlife?",
+        options: ["It has no effect", "It can lead to habitat loss", "It increases reproduction", "It makes animals more social"],
+        answer: 1
+    },
+    {
+        question: "What is one way to reduce noise pollution in cities?",
+        options: ["More roads", "Fewer traffic signals", "Sound barriers", "Increased car sales"],
+        answer: 2
+    },
+    {
+        question: "Which of the following is a sign of noise-induced hearing loss?",
+        options: ["Difficulty understanding speech", "Increased appetite", "Better focus", "None of the above"],
+        answer: 0
+    },
+    {
+        question: "What kind of noise is considered to be more harmful?",
+        options: ["Continuous noise", "Intermittent noise", "Natural sounds", "Soft music"],
+        answer: 0
+    },
+    {
+        question: "Which occupation is most at risk for noise pollution?",
+        options: ["Teacher", "Construction worker", "Office worker", "Musician"],
+        answer: 1
+    },
+    {
+        question: "How can noise pollution impact sleep?",
+        options: ["Improves sleep quality", "Makes it easier to fall asleep", "Disrupts sleep patterns", "Has no effect"],
+        answer: 2
+    },
+    {
+        question: "What is the primary source of noise pollution in a household?",
+        options: ["Television", "Vacuum cleaner", "Birds", "Windows"],
+        answer: 1
+    },
+    {
+        question: "At what decibel level can sound become painful?",
+        options: ["70 dB", "80 dB", "120 dB", "150 dB"],
+        answer: 2
+    },
+    {
+        question: "What does the term 'noise abatement' refer to?",
+        options: ["Loud music", "Reduction of noise pollution", "Increasing traffic", "Noise enforcement laws"],
+        answer: 1
+    },
+    {
+        question: "What type of pollution is often associated with heavy traffic?",
+        options: ["Air pollution", "Water pollution", "Noise pollution", "All of the above"],
+        answer: 2
+    },
+    {
+        question: "Which of these is NOT a potential effect of noise pollution?",
+        options: ["Stress", "Sleep disorders", "Enhanced concentration", "Hearing loss"],
+        answer: 2
+    },
+    {
+        question: "Which country has implemented a noise regulation law?",
+        options: ["All countries", "No countries", "Only developed countries", "Only developing countries"],
+        answer: 0
+    },
+    {
+        question: "What role does urban planning play in noise pollution?",
+        options: ["It can exacerbate noise issues", "It has no role", "It can help mitigate noise pollution", "It can increase traffic flow"],
+        answer: 2
+    },
+    {
+        question: "What is one common noise-reducing material used in buildings?",
+        options: ["Glass", "Wood", "Concrete", "Acoustic panels"],
+        answer: 3
+    },
+    {
+        question: "What is the purpose of sound insulation?",
+        options: ["To make sounds louder", "To reduce sound transmission", "To enhance music quality", "None of the above"],
+        answer: 1
+    },
+    {
+        question: "How can community awareness help reduce noise pollution?",
+        options: ["By promoting quiet hours", "By encouraging noise-making", "By increasing traffic", "By ignoring the issue"],
+        answer: 0
+    },
+    {
+        question: "Which device is commonly used for monitoring noise levels?",
+        options: ["Anemometer", "Decibel meter", "Thermometer", "Hydrometer"],
+        answer: 1
+    },
+    {
+        question: "What is a common regulation for construction sites to mitigate noise pollution?",
+        options: ["Limit the number of workers", "Implement quiet hours", "Use electric tools only", "Allow loud work at all times"],
+        answer: 1
+    },
+    {
+        question: "What is one effective strategy for reducing noise from traffic?",
+        options: ["Wider roads", "Building more highways", "Introducing low-noise pavement", "Increasing speed limits"],
+        answer: 2
+    },
+    {
+        question: "How can noise barriers help mitigate noise pollution?",
+        options: ["By absorbing sound", "By reflecting sound", "By increasing noise levels", "By spreading noise"],
+        answer: 0
+    },
+    {
+        question: "Which government agency is often responsible for noise regulation?",
+        options: ["Environmental Protection Agency (EPA)", "Department of Transportation", "Occupational Safety and Health Administration (OSHA)", "Federal Aviation Administration (FAA)"],
+        answer: 0
+    },
+    {
+        question: "What is a noise pollution action plan?",
+        options: ["A plan to increase noise levels", "A strategy for assessing and reducing noise pollution", "A schedule for loud events", "None of the above"],
+        answer: 1
+    },
+    {
+        question: "How can green spaces in urban areas help reduce noise pollution?",
+        options: ["By attracting more people", "By blocking sound", "By increasing air pollution", "By allowing more traffic"],
+        answer: 1
+    }
+];
+
+// Function to shuffle questions
+function shuffle(array) {
+    for (let i = array.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [array[i], array[j]] = [array[j], array[i]];
+    }
+}
+
+let currentQuestionIndex = 0;
+let score = 0;
+let selectedAnswer = null;
+
+const questionContainer = document.getElementById('question-container');
+const questionElement = document.getElementById('question');
+const optionsElement = document.getElementById('options');
+const nextButton = document.getElementById('next-button');
+const submitButton = document.getElementById('submit-button');
+const resultContainer = document.getElementById('result-container');
+const scoreElement = document.getElementById('score');
+
+function startQuiz() {
+    shuffle(questions); // Shuffle the questions at the start
+    currentQuestionIndex = 0;
+    score = 0;
+    resultContainer.classList.add('hidden');
+    nextButton.classList.remove('hidden');
+    submitButton.classList.remove('hidden'); // Show submit button from the start
+    showQuestion();
+}
+
+function showQuestion() {
+    selectedAnswer = null; // Reset selected answer for new question
+    const currentQuestion = questions[currentQuestionIndex];
+    questionElement.innerText = currentQuestion.question;
+    optionsElement.innerHTML = '';
+
+    currentQuestion.options.forEach((option, index) => {
+        const optionElement = document.createElement('div');
+        optionElement.innerText = option;
+        optionElement.classList.add('option');
+        optionElement.onclick = () => selectOption(index, optionElement);
+        optionsElement.appendChild(optionElement);
+    });
+}
+
+function selectOption(index, element) {
+    // Clear previous selections
+    const options = optionsElement.children;
+    for (let opt of options) {
+        opt.classList.remove('selected');
+    }
+
+    // Mark the selected option
+    element.classList.add('selected');
+    selectedAnswer = index; // Save the selected answer
+
+    // Show the next button only if it's not the last question
+    if (currentQuestionIndex < questions.length - 1) {
+        nextButton.classList.remove('hidden'); // Show next button
+    }
+}
+
+function nextQuestion() {
+    const currentQuestion = questions[currentQuestionIndex];
+
+    // Check if the answer was correct
+    if (selectedAnswer !== null) {
+        if (selectedAnswer === currentQuestion.answer) {
+            score += 2; // Each question carries 2 marks
+        }
+
+        // Highlight correct and selected answers
+        const options = optionsElement.children;
+        for (let i = 0; i < options.length; i++) {
+            if (i === selectedAnswer) {
+                options[i].classList.add('incorrect'); // Show selected answer as incorrect
+                if (selectedAnswer === currentQuestion.answer) {
+                    options[i].classList.remove('incorrect'); // Remove incorrect class if selected is correct
+                    options[i].classList.add('correct'); // Show selected answer as correct
+                }
+            }
+            if (i === currentQuestion.answer) {
+                options[i].classList.add('correct'); // Highlight correct answer
+            }
+        }
+    }
+
+    nextButton.classList.add('hidden'); // Hide next button after clicking
+    currentQuestionIndex++;
+    
+    if (currentQuestionIndex < questions.length) {
+        setTimeout(showQuestion, 2000); // Show next question after a delay
+    } else {
+        setTimeout(submitQuiz, 2000); // Automatically show result at the end
+    }
+}
+
+function submitQuiz() {
+    // Check if the last question was answered
+    const currentQuestion = questions[currentQuestionIndex];
+    if (selectedAnswer !== null) {
+        if (selectedAnswer === currentQuestion.answer) {
+            score += 2; // Each question carries 2 marks
+        }
+    }
+
+    questionContainer.classList.add('hidden');
+    resultContainer.classList.remove('hidden');
+    scoreElement.innerText = `${score} out of ${questions.length * 2}`; // Total score display
+}
+
+function restartQuiz() {
+    questionContainer.classList.remove('hidden');
+    startQuiz();
+}
+
+// Start the quiz when the page loads
+startQuiz();
+
+    </script>
+</body>
+</html>
